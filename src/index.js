@@ -12,8 +12,7 @@ const loaderEl = document.querySelector(".loader");
 const catInfoDiv = document.querySelector(".cat-info");
 
 function createBreedsList(data) {
-    selectEl.classList.remove("visually-hidden");
-    loaderEl.classList.add("visually-hidden");
+    
     const result = data.map(({id, name}) => {        
         
             return {text: name, value: id};
@@ -30,7 +29,8 @@ function createBreedsList(data) {
                 allowDeselect: true
               }
           })
-
+          selectEl.classList.remove("visually-hidden");
+        loaderEl.classList.add("visually-hidden");
     }
 
 function selectElHandler(event) {
