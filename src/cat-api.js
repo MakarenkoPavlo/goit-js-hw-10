@@ -1,5 +1,5 @@
 const API_URL = "https://api.thecatapi.com/v1/";
-const API_KEY = "live_5YP6rjv28UVqmyLmTkPzHdr09dR9MoYcVbJ8XlJPndNDs0drQqIEVhmjacrIjura";
+const API_KEY = "live_SmIm8EID1cgYkkXo2WXSMGaLVU80H832gSlM1JaXQ64KTzTAeWwbBPFvFmHOQZ78";
 
 const API_HEADERS = new Headers({
     'Content-Type': 'application/json',

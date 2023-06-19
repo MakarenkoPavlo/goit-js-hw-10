@@ -13,13 +13,10 @@ const catInfoDiv = document.querySelector(".cat-info");
 
 function createBreedsList(data){
     const result = data.map(({id, name}) => {        
-            // const option = document.createElement("option");
-            // option.textContent = name;
-            // option.value = id;
-            // return option;
+        
             return {text: name, value: id};
         });
-        // selectEl.append(...result);
+        
         const emptyObj = {text: " ", value: " "};
         
         result.unshift(emptyObj);
@@ -45,8 +42,7 @@ function selectElHandler(event){
     fetchCatByBreed(breedId).then(data => {
         const catImgURL = data[0].url;
         const catBreedInfo = data[0].breeds[0];
-        // console.log(data[0]);
-    const catInfoCode = `
+        const catInfoCode = `
     <div class="cat-info-box">
     <img id="photo" class="breed-img" src="${catImgURL}" width="350" loading="lazy" >
     <div class="cat-text-box"> 
@@ -59,26 +55,11 @@ function selectElHandler(event){
     catInfoDiv.innerHTML = catInfoCode;
     }).catch(error => {
         console.log(error);
-        const e = error;
+    const e = error;
         Notiflix.Notify.failure(`Error: ${e}`);
     });
     setTimeout(hideLoader, 2500);
 }
-
-// window.onload = (event) => {
-//     loaderEl.classList.add("visually-hidden");
-//   };
-// const catEl = document.getElementById("photo");
-// console.dir(catEl);
-// console.log(catEl.loading);
-// catEl.onload = console.log("load");
-// setInterval(()=>console.log(catEl.complite), 250) ;
-
-// window.addEventListener("load", event => {
-//     var image = document.querySelector('img');
-//     var isLoadedSuccessfully = image.complete && image.naturalWidth !== 0;
-//     alert(isLoadedSuccessfully);
-// });
 
 function hideLoader(){
     loaderEl.classList.add("visually-hidden");
