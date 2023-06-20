@@ -12,30 +12,28 @@ const loaderEl = document.querySelector(".loader");
 const catInfoDiv = document.querySelector(".cat-info");
 
 function createBreedsList(data) {
-    
-    const result = data.map(({id, name}) => {        
-        
-            return {text: name, value: id};
-        });
-        
-        const emptyObj = {text: " ", value: " "};
-        
-        result.unshift(emptyObj);
+    const result = data.map(({ id, name }) => {
+        return { text: name, value: id };
+    });
 
-        new SlimSelect({
-            select: '.breed-select',
-            data: result,
-            settings: {
-                allowDeselect: true
-              }
-          })
-          selectEl.classList.remove("visually-hidden");
-        loaderEl.classList.add("visually-hidden");
-    }
+    const emptyObj = { text: " ", value: " " };
+
+    result.unshift(emptyObj);
+
+    new SlimSelect({
+        select: '.breed-select',
+        data: result,
+        settings: {
+            allowDeselect: true
+        }
+    });
+
+    selectEl.classList.remove("visually-hidden");
+    loaderEl.classList.add("visually-hidden");
+}
 
 function selectElHandler(event) {
-    selectEl.classList.add("visually-hidden");
-    loaderEl.classList.remove("visually-hidden");
+    
     const breedId = selectEl.value;
     
     if (breedId === " ") {

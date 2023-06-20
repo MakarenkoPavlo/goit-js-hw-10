@@ -9,12 +9,12 @@ const API_HEADERS = new Headers({
 
 
 export function fetchBreeds(){
-    //    return fetch(`${API_URL}breeds`,{API_HEADERS})
        return fetch(`${API_URL}breeds`,{method:"GET", headers:API_HEADERS})
         .then(response => {
             if (!response.ok) {
                 throw new Error(response.status);
             }
+            
            return response.json()})
         .then(res => {
            return res.map(obj => ({
